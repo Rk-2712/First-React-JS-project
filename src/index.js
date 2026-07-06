@@ -3,6 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './assets/style.css';
+import "./assets/css/bootstrap.css";
+import "./assets/js/dl-menu/component.css";
+import "./assets/css/slick.css";
+import "./assets/css/font-awesome.min.css";
+import "./assets/css/svg.css";
+import "./assets/css/prettyPhoto.css";
+import "./assets/css/shortcodes.css";
+import "./assets/css/widget.css";
+import "./assets/css/typography.css";
+import "./assets/style.css";
+import "./assets/css/color.css";
+import "./assets/css/responsive.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

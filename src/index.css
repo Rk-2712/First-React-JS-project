@@ -11,3 +11,187 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Premium Sticky Header Animations */
+header.iq_header_1.sticky {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  background: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+header.iq_header_1.sticky .iq_top_strip {
+  display: none !important;
+}
+
+header.iq_header_1.sticky .iq_logo {
+  padding: 10px 0 !important;
+  margin: 0 !important;
+}
+
+header.iq_header_1.sticky .iq_logo img {
+  max-height: 40px !important;
+  width: auto !important;
+}
+
+header.iq_header_1.sticky .navigation-wrapper {
+  margin-top: 5px !important;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Premium Dropdown Menu Hover Animations */
+.navigation ul li {
+  position: relative;
+}
+
+.navigation ul li ul.children {
+  display: block !important;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s !important;
+  pointer-events: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.navigation ul li:hover > ul.children {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Scroll Reveal Framework */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gallery Filtering Transitions */
+.gallery-transition-container {
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+}
+
+.gallery-transition-container.fade-leave {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.gallery-transition-container.fade-enter {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Search Courses Form Styles */
+.iq_search_courses {
+  background-color: #fff !important;
+  padding: 35px 25px !important;
+  border-radius: 6px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid #eee !important;
+  position: relative;
+  z-index: 5;
+  margin-top: 20px !important;
+}
+
+.iq_search_courses h4 {
+  margin-top: 0 !important;
+  margin-bottom: 25px !important;
+  font-size: 22px !important;
+  color: #333 !important;
+  font-weight: bold !important;
+  border-bottom: 2px solid #29b6f6 !important;
+  padding-bottom: 10px !important;
+  text-transform: uppercase !important;
+}
+
+.iq_search_courses .iq-input {
+  margin-bottom: 15px !important;
+}
+
+.iq_search_courses .iq-input input[type="text"],
+.iq_search_courses .iq-input input[type="email"] {
+  width: 100% !important;
+  height: 45px !important;
+  padding: 10px 15px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  background-color: #fcfcfc !important;
+  color: #555 !important;
+  font-size: 14px !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.3s !important;
+}
+
+.iq_search_courses .iq-input input[type="text"]:focus,
+.iq_search_courses .iq-input input[type="email"]:focus {
+  border-color: #29b6f6 !important;
+  background-color: #fff !important;
+}
+
+/* Premium Select Input Styles */
+.iq-input select {
+  width: 100% !important;
+  height: 45px !important;
+  padding: 0 35px 0 15px !important; /* Zero top/bottom padding to prevent vertical text clipping */
+  line-height: 45px !important;      /* Explicit line-height to center text */
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  background-color: #fcfcfc !important;
+  color: #555 !important;
+  font-size: 14px !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.3s, background-color 0.3s !important;
+  
+  /* Custom Arrow Styling */
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23666' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 15px center !important;
+  background-size: 8px 10px !important;
+}
+
+.iq-input select:focus {
+  border-color: #29b6f6 !important;
+  background-color: #fff !important;
+}
+
+.iq_search_courses .iq-input input[type="submit"] {
+  width: 100% !important;
+  height: 45px !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  font-size: 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
