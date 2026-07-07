@@ -7,10 +7,32 @@ export default function Contact() {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [errName, setErrName] = useState("");
+  const [errEmail, setErrEmail] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    if (name && email && message) {
+    
+    let tempErrName = "";
+    let tempErrEmail = "";
+
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
+
+    let nameRegex = /^[A-Za-z ]{2,50}$/;
+    let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (!trimmedName || !nameRegex.test(trimmedName)) {
+      tempErrName = "Please enter a valid name";
+    }
+    if (!trimmedEmail || !emailRegex.test(trimmedEmail)) {
+      tempErrEmail = "Please enter a valid email";
+    }
+
+    setErrName(tempErrName);
+    setErrEmail(tempErrEmail);
+
+    if (!tempErrName && !tempErrEmail) {
       setSubmitted(true);
       setTimeout(() => {
         setSubmitted(false);
@@ -20,6 +42,7 @@ export default function Contact() {
         setMessage("");
       }, 5000);
     }
+
   };
 
   return (
@@ -100,6 +123,7 @@ export default function Contact() {
                           required
                           style={{ height: "45px", borderRadius: "4px" }}
                         />
+                        {errName && <span style={{ color: "red", fontSize: "12px", marginTop: "5px", display: "block" }}>{errName}</span>}
                       </div>
                     </div>
                     <div className="col-md-6" style={{ marginBottom: "20px" }}>
@@ -113,6 +137,7 @@ export default function Contact() {
                           required
                           style={{ height: "45px", borderRadius: "4px" }}
                         />
+                        {errEmail && <span style={{ color: "red", fontSize: "12px", marginTop: "5px", display: "block" }}>{errEmail}</span>}
                       </div>
                     </div>
                   </div>

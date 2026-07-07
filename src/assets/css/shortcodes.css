@@ -187,6 +187,9 @@ input.iq_link_1:hover{
     text-transform: capitalize;
     background-color: transparent;
 }
+.iq-input input[type="email"] {
+    text-transform: none;
+}
 .iq-input select{
     outline: none;
 }

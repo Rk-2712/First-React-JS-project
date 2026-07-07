@@ -31,7 +31,7 @@
 .coureses_Popular_thumb:hover .popular_capstion > h5 a
 {
 
-	color: #e79800;
+	color: #C8102E;
 
 }
 
@@ -81,11 +81,11 @@
 .iq-progress .tooltip > .tooltip-inner, .iq-progress .progress-bar,
 .iq_footer_newsletter .iq-input-icon
 {
-	background-color:#e79800;
+	background-color:#0B2D64;
 }
 ::-webkit-scrollbar-thumb
 {
-	background-color:#e79800;
+	background-color:#0B2D64;
 }
 
 /*
@@ -121,7 +121,7 @@
 .iq-progress .popOver + .tooltip > .tooltip-arrow,
 .iq_search_courses
 {
-	border-color:#e79800;	
+	border-color:#0B2D64;	
 }
 /*
 	  ============================================================

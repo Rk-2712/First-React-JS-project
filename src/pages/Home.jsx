@@ -773,15 +773,25 @@ export default function Home() {
                 <div key={post.id} className="col-md-4 col-sm-6" style={{ marginBottom: "20px" }}>
                   <div className="center-dec" style={{ border: "1px solid #eee", padding: "15px" }}>
                     <figure><img src={post.image} alt={post.title} style={{ width: "100%" }} /></figure>
-                    <div className="text" style={{ marginTop: "15px" }}>
+                    <div className="text" style={{ padding: 0, border: "none", marginTop: "15px" }}>
                       <h5><Link to="/blog">{post.title}</Link></h5>
                       <p>Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit.</p>
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "15px" }}>
-                        <div className="text-footer">
-                          <Link to="#" style={{ marginRight: "10px" }}><i className="fa fa-pencil"></i> Admin</Link>
-                          <Link to="#"><i className="fa fa-comments-o"></i> 5</Link>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "10px", marginTop: "15px", clear: "both", width: "100%" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                            <Link to="#" style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "32px", height: "32px", borderRadius: "50%", border: "1px solid #d6d6d6", color: "#a8a8a8", fontSize: "12px", transition: "all 0.3s" }}>
+                              <i className="fa fa-pencil"></i>
+                            </Link>
+                            <span style={{ fontSize: "13px", color: "#777", fontWeight: 500 }}>Admin</span>
+                          </div>
+                          <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                            <Link to="#" style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "32px", height: "32px", borderRadius: "50%", border: "1px solid #d6d6d6", color: "#a8a8a8", fontSize: "12px", transition: "all 0.3s" }}>
+                              <i className="fa fa-comments-o"></i>
+                            </Link>
+                            <span style={{ fontSize: "13px", color: "#777", fontWeight: 500 }}>5</span>
+                          </div>
                         </div>
-                        <Link to="/blog" className="iq_link_1">Read More</Link>
+                        <Link to="/blog" className="iq_link_1" style={{ minWidth: "120px", padding: "8px 20px", fontSize: "14px", lineHeight: "normal" }}>Read More</Link>
                       </div>
                     </div>
                   </div>
