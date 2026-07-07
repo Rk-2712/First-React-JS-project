@@ -68,9 +68,9 @@ export default function Header() {
       name: 'Courses',
       link: '/courses',
       dropdown: [
-        { name: 'Course Detail', link: '/courses' },
-        { name: 'Courses Small', link: '/courses' },
-        { name: 'Our Courses List', link: '/courses' },
+        { name: 'Course Detail', link: '/course-detail' },
+        { name: 'Courses Small', link: '/courses-small' },
+        { name: 'Our Courses List', link: '/our-courses-list' },
         { name: 'Our Courses', link: '/courses' },
       ]
     },
@@ -79,16 +79,16 @@ export default function Header() {
       link: '/blog',
       dropdown: [
         { name: 'Blog Large', link: '/blog' },
-        { name: 'Blog Medium', link: '/blog' },
-        { name: 'Blog Small', link: '/blog' },
-        { name: 'Blog Detail', link: '/blog' },
+        { name: 'Blog Medium', link: '/blog-medium' },
+        { name: 'Blog Small', link: '/blog-small' },
+        { name: 'Blog Detail', link: '/blog-detail' },
       ]
     },
     {
       name: 'Event',
       link: '/events',
       dropdown: [
-        { name: 'Event Detail', link: '/events' },
+        { name: 'Event Detail', link: '/event-detail' },
         { name: 'Event Calendar', link: '/events' },
       ]
     },
@@ -97,15 +97,15 @@ export default function Header() {
       link: '/staff',
       dropdown: [
         { name: 'Our Staff', link: '/staff' },
-        { name: 'Staff Detail', link: '/staff' },
+        { name: 'Staff Detail', link: '/staff-detail' },
       ]
     },
     {
       name: 'Gallery',
       link: '/gallery',
       dropdown: [
-        { name: 'Gallery Medium', link: '/gallery' },
-        { name: 'Gallery Small', link: '/gallery' },
+        { name: 'Gallery Medium', link: '/gallery-medium' },
+        { name: 'Gallery Small', link: '/gallery-small' },
         { name: 'Masonry Gallery', link: '/gallery' },
       ]
     },
