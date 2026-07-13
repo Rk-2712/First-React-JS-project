@@ -109,7 +109,14 @@ export default function Header() {
         { name: 'Masonry Gallery', link: '/gallery' },
       ]
     },
-    { name: 'Contact Us', link: '/contact' }
+    {
+      name: 'Contact',
+      link: '/contact',
+      dropdown: [
+        { name: 'Contact Us', link: '/contact' },
+        { name: 'Contact List', link: '/contact-list' }
+      ]
+    }
   ];
 
   // Helper function to check if a menu path is currently active

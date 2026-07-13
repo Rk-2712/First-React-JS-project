@@ -19,6 +19,7 @@ import BlogMedium from "./pages/BlogMedium";
 import CourseDetail from "./pages/CourseDetail";
 import CoursesSmall from "./pages/CoursesSmall";
 import EventDetail from "./pages/EventDetail";
+import ContactList from "./pages/ContactList";
 
 export default function App() {
   return (
@@ -44,6 +45,7 @@ export default function App() {
           <Route path="/gallery-medium" element={<GalleryMedium />} />
           <Route path="/gallery-small" element={<GallerySmall />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/contact-list" element={<ContactList />} />
         </Routes>
         <Footer />
       </div>

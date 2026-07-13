@@ -9,6 +9,8 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [errName, setErrName] = useState("");
   const [errEmail, setErrEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -33,16 +35,43 @@ export default function Contact() {
     setErrEmail(tempErrEmail);
 
     if (!tempErrName && !tempErrEmail) {
-      setSubmitted(true);
-      setTimeout(() => {
-        setSubmitted(false);
-        setName("");
-        setEmail("");
-        setSubject("");
-        setMessage("");
-      }, 5000);
-    }
+      setLoading(true);
+      setErrorMsg("");
+      try {
+        const response = await fetch("http://localhost:5000/api/contacts", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: trimmedName,
+            email: trimmedEmail,
+            subject: subject.trim(),
+            message: message.trim(),
+          }),
+        });
 
+        const data = await response.json();
+        
+        if (response.ok && data.success) {
+          setSubmitted(true);
+          setName("");
+          setEmail("");
+          setSubject("");
+          setMessage("");
+          setTimeout(() => {
+            setSubmitted(false);
+          }, 5000);
+        } else {
+          setErrorMsg(data.message || "Failed to send message. Please try again.");
+        }
+      } catch (err) {
+        setErrorMsg("Server error: Unable to send message. Please ensure the backend is running.");
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    }
   };
 
   return (
@@ -107,6 +136,12 @@ export default function Contact() {
                 {submitted && (
                   <div className="alert alert-success" role="alert" style={{ marginBottom: "25px", backgroundColor: "#d4edda", borderColor: "#c3e6cb", color: "#155724", padding: "15px", borderRadius: "4px" }}>
                     Thank you! Your message has been sent successfully. We will get back to you soon.
+                  </div>
+                )}
+
+                {errorMsg && (
+                  <div className="alert alert-danger" role="alert" style={{ marginBottom: "25px", backgroundColor: "#f8d7da", borderColor: "#f5c6cb", color: "#721c24", padding: "15px", borderRadius: "4px" }}>
+                    {errorMsg}
                   </div>
                 )}
 
@@ -175,12 +210,14 @@ export default function Contact() {
 
                   <div className="row">
                     <div className="col-md-12">
-                      <input
+                      <button
                         type="submit"
                         className="iq_link_1"
-                        value="Submit Form"
-                        style={{ border: "none", cursor: "pointer", height: "45px", display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "150px" }}
-                      />
+                        disabled={loading}
+                        style={{ border: "none", cursor: loading ? "not-allowed" : "pointer", height: "45px", display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "150px", opacity: loading ? 0.7 : 1 }}
+                      >
+                        {loading ? "Sending..." : "Submit Form"}
+                      </button>
                     </div>
                   </div>
                 </form>
